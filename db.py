@@ -1,11 +1,11 @@
-import psycopg
+import psycopg2
 import asyncio
 import json
 
 
 
 def connection():  # соединение с базой данных
-    conn = psycopg.connect(
+    conn = psycopg2.connect(
     host='localhost',
     user='postgres',
     database='WeatherDB',

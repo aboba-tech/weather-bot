@@ -43,7 +43,7 @@ def get_ending(value):
 async def start(message: types.Message):
     button_loc = types.KeyboardButton(text='Отправить локацию', request_location=True)
     buttons = [button_loc]
-    db.create_user(message.chat.id)
+    # db.create_user(message.chat.id)
     user_path = f"json_files/private_jsons/user_{message.chat.id}.json"
     if os.path.exists(user_path):
         pass
@@ -66,7 +66,7 @@ async def location(message: types.Location):
         # print(info)
         info["UserForecast"] = response
     _save(info, user_path)
-    db.save_json(user_path, message.chat.id)
+    # db.save_json(user_path, message.chat.id)
     # print(response)
     min_temp = round((response[3]['DailyForecasts'][0]['Temperature']['Minimum']['Value'] - 32) * 5 / 9)
     max_temp = round((response[3]['DailyForecasts'][0]['Temperature']['Maximum']['Value'] - 32) * 5 / 9)
