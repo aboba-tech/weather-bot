@@ -11,7 +11,7 @@ from aiogram.filters import Command
 from aiogram.client.default import DefaultBotProperties
 
 
-TOKEN = '6734859834:AAFo7Zgje-O1jizRRKZCQZPcY1IVJg1eZ2A'
+TOKEN = ''
 default=DefaultBotProperties(parse_mode='HTML')
 bot = Bot(TOKEN, default=default)
 
