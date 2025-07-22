@@ -3,8 +3,8 @@
 FROM python:3.13-slim-bullseye
 
 # тут устанавливаем переменные среды. Первая переменная запрещает создание .pyc файлов(меньше размер образа). вторая отключает буферизацию вывода python
-ENV PYTHONDONTWRITEBITECODE 1  
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBITECODE=1  
+ENV PYTHONUNBUFFERED=1
 
 # Устанавливаем рабочую директорию внутри контейнера. Если её нет, docker создает её сам
 WORKDIR /app
@@ -26,4 +26,4 @@ COPY . /app/
 EXPOSE 9675
 
 # а тут просто запускаем программу из консоли bash
-CMD ["python", "main.py"]
+CMD ["python", "main.py"] 
