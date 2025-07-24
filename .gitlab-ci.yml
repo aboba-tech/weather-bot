@@ -1,0 +1,9 @@
+stages:
+  - copy
+
+copy_job:
+  stage: copy
+  include:
+    - project: 'admin_aboba/aboba-tech-project'
+      ref: main
+      file: '.gitlab-ci.yml'
