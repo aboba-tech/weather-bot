@@ -3,7 +3,6 @@ import logging
 import sys
 import json
 import os
-import db
 import geo_request
 
 from aiogram import Bot, Dispatcher, Router, types
@@ -11,9 +10,8 @@ from aiogram.filters import Command
 from aiogram.client.default import DefaultBotProperties
 
 
-TOKEN = '6734859834:AAFo7Zgje-O1jizRRKZCQZPcY1IVJg1eZ2A'
 default=DefaultBotProperties(parse_mode='HTML')
-bot = Bot(TOKEN, default=default)
+bot = Bot(os.getenv('BOT_TOKEN'), default=default)
 
 
 

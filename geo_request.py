@@ -1,4 +1,4 @@
-import db
+
 import aiohttp
 import asyncio
 from geo_pos import get_pos

@@ -1,4 +1,4 @@
-import psycopg2
+
 import asyncio
 import json
 
