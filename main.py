@@ -19,9 +19,9 @@ print(os.getenv("BOT_TOKEN"))
 
 bot = Bot(token=(os.getenv('BOT_TOKEN')), default=default)
 
-# все хэндлеры должны быть присоединены к рутеру(или же диспетчеру)
+# все хэндлеры должны быть присоединены к диспетчеру
 dp = Dispatcher()
-router = Router()
+
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
