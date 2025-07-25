@@ -100,7 +100,7 @@ async def callback_query_handler(callback_query: types.CallbackQuery):
     # колбэк аннотированный типом класса CallbackQuery, т.к. в класс передается callback_data
     try:
         if callback_query.data == 'forward':
-            fp = f'json_files/private_jsons/user_{callback_query.message.chat.id}.json'
+            fp = f'{current_dir}/json_files/private_jsons/user_{callback_query.message.chat.id}.json'
             with open(fp, 'r') as f:
                 response = json.load(f)
                 if response["num"] < 5:
@@ -131,7 +131,7 @@ async def callback_query_handler(callback_query: types.CallbackQuery):
                                 reply_markup=keyboard)
 
         if callback_query.data == 'back':
-            fp = f'json_files/private_jsons/user_{callback_query.message.chat.id}.json'
+            fp = f'{current_dir}/json_files/private_jsons/user_{callback_query.message.chat.id}.json'
             with open(fp, 'r') as f:
                 response = json.load(f)
                 if response["num"] > -1:
