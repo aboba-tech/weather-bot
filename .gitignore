@@ -1,4 +1,4 @@
-
+__pycache__/
 .env
 venv/
 json_files/private_jsons/*
