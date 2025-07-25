@@ -19,18 +19,15 @@ print(os.getenv("BOT_TOKEN"))
 
 bot = Bot(token=(os.getenv('BOT_TOKEN')), default=default)
 
-
-
 # все хэндлеры должны быть присоединены к рутеру(или же диспетчеру)
 dp = Dispatcher()
 router = Router()
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 def _save(obj, fp):
     with open(fp, 'r+') as f:
         json.dump(obj, f, indent=2)
-
-
 
 endings = {1:"", 2 :"а", 3:"а", 4:"а", 5:"ов",
            6:"ов", 7:"ов", 8:"ов", 9:"ов", 10:"ов", 11:"ов", 12:"ов", 13:"ов", 14:"ов", 15:"ов", 16:"ов", 17:"ов", 18:"ов", 19:"ов", 0:"ов"}
@@ -48,10 +45,12 @@ async def start(message: types.Message):
     button_loc = types.KeyboardButton(text='Отправить локацию', request_location=True)
     buttons = [button_loc]
     # db.create_user(message.chat.id)
-    user_path = f"json_files/private_jsons/user_{message.chat.id}.json"
+    user_path = f"{current_dir}/json_files/private_jsons/user_{message.chat.id}.json"
     if os.path.exists(user_path):
         pass
     else:
+        os.mkdir(f'{current_dir}/json_files')
+        os.mkdir(f'{current_dir}/json_files/private_jsons')
         data = {"num":0, "UserForecast":{}}
         with open(user_path, 'w') as f:
             json.dump(data, f, indent=2)
@@ -64,7 +63,7 @@ async def start(message: types.Message):
 @dp.message()  # хандлер на локацию
 async def location(message: types.Location):
     response = await geo_request.get_meteo(message.location.longitude, message.location.latitude)
-    user_path = f"json_files/private_jsons/user_{message.chat.id}.json"
+    user_path = f"{current_dir}/json_files/private_jsons/user_{message.chat.id}.json"
     with open(user_path, 'r') as path:
         info = json.load(path)
         # print(info)
