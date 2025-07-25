@@ -39,7 +39,6 @@ def get_ending(value):
     
 
 
-
 @dp.message(Command('start'))
 async def start(message: types.Message):
     button_loc = types.KeyboardButton(text='Отправить локацию', request_location=True)
