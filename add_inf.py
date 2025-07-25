@@ -1,4 +1,4 @@
-  # may be useless yes
+  # may be useless
 
 
 import json
