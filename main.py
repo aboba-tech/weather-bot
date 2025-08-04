@@ -19,7 +19,7 @@ print(os.getenv("BOT_TOKEN"))
 
 bot = Bot(token=(os.getenv('BOT_TOKEN')), default=default)
 
-# все хэндлеры должны быть присоединены к диспетчеру yes
+# все хэндлеры должны быть присоединены к диспетчеру
 dp = Dispatcher()
 
 
