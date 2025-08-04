@@ -58,7 +58,7 @@ async def start(message: types.Message):
                                             f' Не забудьте включить геопозицию', reply_markup=keyboard)
 
 
-@dp.message()  # хандлер на локацию dav
+@dp.message()  # хандлер на локацию 
 async def location(message: types.Location):
     response = await geo_request.get_meteo(message.location.longitude, message.location.latitude)
     user_path = f"{current_dir}/json_files/private_jsons/user_{message.chat.id}.json"
